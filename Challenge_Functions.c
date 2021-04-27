@@ -1,29 +1,29 @@
 #include<stdio.h>
 
-#include<math.h>
-
-int main(){
-int n,r=1;
-scanf("%d",&n);
-if (n>=2){
-for (int i = 2; i < n; i++)
+int find_lcm(int a, int b)  
 {
-    if (n%i==0)
+    static int temp = 1;    
+    if(temp%a == 0 && temp%b == 0)
     {
-         r=0;
-        break;
-    }   
-}
-if (r==0)
-{
-   printf("Not a prime number");
-}
-else{printf("Is a prime number");}
-}
-else if (n==1 || n==0)
-{
-    printf("Not a prime number");
+        return temp;
+    }
+    else
+    {
+        temp++;
+        find_lcm(a,b);
+        return temp;
+    }
 }
 
-return 0;
+int main()
+{
+    int a, b, lcm;
+    printf("Input first number: ");
+    scanf("%d",&a);
+    printf("Input second number: ");
+    scanf("%d",&b);
+    lcm = find_lcm(a,b); 
+    printf("LCM of %d and %d = %d",a,b,lcm);
+    return 0;
 }
+
