@@ -18,9 +18,12 @@ int find_lcm(int a, int b)
 int main()
 {
     int a, b, lcm;
-    scanf("%d%d", &a, &b);
+    printf("Input first number: ");
+    scanf("%d",&a);
+    printf("Input second number: ");
+    scanf("%d",&b);
     lcm = find_lcm(a,b); 
-    printf("%d",lcm);
+    printf("LCM of %d and %d = %d",a,b,lcm);
     return 0;
 }
 
